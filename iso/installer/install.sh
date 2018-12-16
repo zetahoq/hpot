@@ -611,14 +611,14 @@ case $myCONF_TPOT_FLAVOR in
 esac
 
 # Let's load docker images in parallel
-function fuPULLIMAGES {
-for name in $(cat $myTPOTCOMPOSE | grep -v '#' | grep image | cut -d'"' -f2 | uniq)
-  do
-    docker pull $name &
-done
-wait
-}
-fuPULLIMAGES 2>&1 | dialog --title "[ Pulling docker images, please be patient ]" $myPROGRESSBOXCONF
+#function fuPULLIMAGES {
+#for name in $(cat $myTPOTCOMPOSE | grep -v '#' | grep image | cut -d'"' -f2 | uniq)
+# do
+#    docker pull $name &
+#done
+#wait
+#}
+#fuPULLIMAGES 2>&1 | dialog --title "[ Pulling docker images, please be patient ]" $myPROGRESSBOXCONF
 
 # Let's add the daily update check with a weekly clean interval
 myUPDATECHECK="APT::Periodic::Update-Package-Lists \"1\";
