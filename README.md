@@ -250,7 +250,7 @@ For transparency reasons and to give you the ability to customize your install, 
 
 1. Clone the repository and enter it.
 ```
-git clone https://github.com/dtag-dev-sec/tpotce
+git clone https://github.com/zetahoq/hpot
 cd tpotce
 ```
 2. Invoke the script that builds the ISO image.
@@ -313,7 +313,7 @@ You can also let the installer run automatically if you provide your own `tpot.c
 Just follow these steps while adjusting `tpot.conf` to your needs:
 
 ```
-git clone https://github.com/dtag-dev-sec/tpotce
+git clone https://github.com/zetahoq/hpot
 cd tpotce/iso/installer/
 cp tpot.conf.dist tpot.conf
 ./install.sh --type=auto --conf=tpot.conf
