@@ -21,20 +21,20 @@ RUN apk -U add \
 
 # Add and move files
     cd /root/dist/ && \
-    cp kibana.svg /usr/share/kibana/src/ui/public/images/kibana.svg && \
-    cp kibana.svg /usr/share/kibana/src/ui/public/icons/kibana.svg && \
-    cp elk.ico /usr/share/kibana/src/ui/public/assets/favicons/favicon.ico && \
-    cp elk.ico /usr/share/kibana/src/ui/public/assets/favicons/favicon-16x16.png && \
-    cp elk.ico /usr/share/kibana/src/ui/public/assets/favicons/favicon-32x32.png && \
+   #cp kibana.svg /usr/share/kibana/src/ui/public/images/kibana.svg && \
+   #cp kibana.svg /usr/share/kibana/src/ui/public/icons/kibana.svg && \
+   #cp elk.ico /usr/share/kibana/src/ui/public/assets/favicons/favicon.ico && \
+   #cp elk.ico /usr/share/kibana/src/ui/public/assets/favicons/favicon-16x16.png && \
+   #cp elk.ico /usr/share/kibana/src/ui/public/assets/favicons/favicon-32x32.png && \
     cp create_kibana_index.js /usr/share/kibana/src/core_plugins/elasticsearch/lib/ && \
 
 # Setup plugins, rebuild bundle
-    #cd /usr/share/kibana/plugins && \
-    #wget https://github.com/dlumbrer/kbn_radar/releases/download/Kibana-6.X/kbn_radar.tar.gz && \
-    #wget https://github.com/dlumbrer/kbn_network/releases/download/6.0.X-1/network_vis.tar.gz && \
-    #tar xvfz kbn_radar.tar.gz && \
-    #tar xvfz network_vis.tar.gz && \
-    #rm *.tar.gz && \
+    cd /usr/share/kibana/plugins && \
+    wget https://github.com/dlumbrer/kbn_network/releases/download/6.3.X-2/network_vis-6.tar.gz && \
+    wget https://github.com/dlumbrer/kbn_radar/releases/download/6.3.X-3/kbn_radar-6.tar.gz && \
+    tar xvfz kbn_radar.tar.gz && \
+    tar xvfz network_vis.tar.gz && \
+    rm *.tar.gz && \
     rm -rf /usr/share/kibana/optimize/bundles/* && \
 
 # Setup user, groups and configs
@@ -44,8 +44,8 @@ RUN apk -U add \
     sed -i 's/#elasticsearch.url: "http:\/\/localhost:9200"/elasticsearch.url: "http:\/\/elasticsearch:9200"/' /usr/share/kibana/config/kibana.yml && \
     sed -i 's/#server.rewriteBasePath: false/server.rewriteBasePath: false/' /usr/share/kibana/config/kibana.yml && \
     sed -i "s/#005571/#e20074/g" /usr/share/kibana/src/ui/public/chrome/directives/global_nav/global_nav.less && \
-    sed -i "s/globalColorBlue/globalColorMagenta/g" /usr/share/kibana/src/ui/public/chrome/directives/global_nav/global_nav_link/global_nav_link.less && \
-    echo "@globalColorMagenta: #9E0051;" >> /usr/share/kibana/src/ui/public/styles/variables/colors.less && \
+    #sed -i "s/globalColorBlue/globalColorMagenta/g" /usr/share/kibana/src/ui/public/chrome/directives/global_nav/global_nav_link/global_nav_link.less && \
+    #echo "@globalColorMagenta: #9E0051;" >> /usr/share/kibana/src/ui/public/styles/variables/colors.less && \
     echo "xpack.infra.enabled: false" >> /usr/share/kibana/config/kibana.yml && \ 
     echo "xpack.logstash.enabled: false" >> /usr/share/kibana/config/kibana.yml && \
     echo "xpack.canvas.enabled: false" >> /usr/share/kibana/config/kibana.yml && \
