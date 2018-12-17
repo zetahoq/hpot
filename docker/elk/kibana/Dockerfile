@@ -32,8 +32,8 @@ RUN apk -U add \
     cd /usr/share/kibana/plugins && \
     wget https://github.com/dlumbrer/kbn_network/releases/download/6.3.X-2/network_vis-6.tar.gz && \
     wget https://github.com/dlumbrer/kbn_radar/releases/download/6.3.X-3/kbn_radar-6.tar.gz && \
-    tar xvfz kbn_radar.tar.gz && \
-    tar xvfz network_vis.tar.gz && \
+    tar xvfz kbn_radar-6.tar.gz && \
+    tar xvfz network_vis-6.tar.gz && \
     rm *.tar.gz && \
     rm -rf /usr/share/kibana/optimize/bundles/* && \
 
