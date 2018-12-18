@@ -605,7 +605,7 @@ case $myCONF_TPOT_FLAVOR in
     ln -s /opt/tpot/etc/compose/nextgen.yml $myTPOTCOMPOSE 2>&1>/dev/null
   ;;
   LEGACY)
-    echo "### Preparing LEGACY flavor installation."
+    echo "### Preparing LOGGER flavor installation."
     ln -s /opt/tpot/etc/compose/legacy.yml $myTPOTCOMPOSE 2>&1>/dev/null
   ;;
 esac
