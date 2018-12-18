@@ -677,10 +677,10 @@ echo "$mySYSTEMDFIX" 2>&1 | tee /etc/systemd/network/99-default.link | dialog --
 # Let's add some cronjobs
 myCRONJOBS="
 # Check if updated images are available and download them
-27 1 * * *      root    docker-compose -f /opt/tpot/etc/tpot.yml pull
+# 27 1 * * *      root    docker-compose -f /opt/tpot/etc/tpot.yml pull
 
 # Delete elasticsearch logstash indices older than 90 days
-27 4 * * *      root    curator --config /opt/tpot/etc/curator/curator.yml /opt/tpot/etc/curator/actions.yml
+# 27 4 * * *      root    curator --config /opt/tpot/etc/curator/curator.yml /opt/tpot/etc/curator/actions.yml
 
 # Uploaded binaries are not supposed to be downloaded
 */1 * * * *     root    mv --backup=numbered /data/dionaea/roots/ftp/* /data/dionaea/binaries/
